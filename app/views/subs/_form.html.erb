@@ -8,10 +8,10 @@
          value="<%= @sub.title %>">
   <br></br>
   <label for="description">Description</label>
-  <input type="textarea"
-         name="sub[description]"
-         id="description"
-         value="<%= @sub.description %>">
+  <textarea name="sub[description]"
+         id="description">
+         <%= @sub.description %>
+  </textarea>
   <br></br>
   <input type="submit" value="Submit">
 </form>

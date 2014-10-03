@@ -14,6 +14,9 @@ class User < ActiveRecord::Base
   foreign_key: :author_id,
   inverse_of: :author
 
+  has_many :comments,
+  foreign_key: :author_id
+
   def self.generate_session_token
     SecureRandom::urlsafe_base64(16)
   end

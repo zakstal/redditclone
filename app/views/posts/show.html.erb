@@ -11,5 +11,13 @@
 <% end %>
 
 <p><%= @post.content %></p>
-
+<%= link_to "Comment", new_post_comment_url(@post) %>
+<br>
+<ul>
+<% @post.comments.each do |comment| %>
+<li><%= comment.content %></li>
+<% end %>
+</ul>
+<br>
+<br>
 <%= link_to "<< Back to #{ @post.sub.title }", sub_url(@post.sub) %>
