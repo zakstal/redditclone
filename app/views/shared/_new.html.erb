@@ -1,0 +1,11 @@
+
+<form action="<%= action %>" method="POST">
+  <%= form_auth %>
+  <label for="email">Email</label>
+  <input type="text" name="user[email]" id="email">
+  <br>
+  <label for="password">Password</label>
+  <input type="password" name="user[password]" id="password">
+  <br>
+  <input type="Submit" value="<%= submit_type %>">
+</form>

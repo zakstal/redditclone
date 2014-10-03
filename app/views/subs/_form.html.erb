@@ -1,0 +1,17 @@
+<form action="<%= action %>" method="POST">
+  <%= form_auth %>
+  <input type="hidden" name="_method" value="<%= method_type %>">
+  <label for="title">Title</label>
+  <input type="text"
+         name="sub[title]"
+         id="title"
+         value="<%= @sub.title %>">
+  <br></br>
+  <label for="description">Description</label>
+  <input type="textarea"
+         name="sub[description]"
+         id="description"
+         value="<%= @sub.description %>">
+  <br></br>
+  <input type="submit" value="Submit">
+</form>

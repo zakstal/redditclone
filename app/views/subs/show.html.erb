@@ -1,0 +1,30 @@
+<h1><%= @sub.title %></h1>
+
+
+<% if logged_in? && moderator?(@sub.moderator_id) %>
+  <%= link_to "Edit this sub", edit_sub_url(@sub) %>
+  <%= button_to "Delete this sub",
+      sub_url(@sub),
+      method: :delete,
+      data: { confirm: "Are you sure" }%>
+<% end %>
+
+<h2>Description</h2>
+<p><%= @sub.description %></p>
+
+<%= link_to "<< Back to Subs", subs_url %>
+
+<h2>Posts</h2>
+
+  <%= link_to "New Post", new_sub_post_url(@sub) %>
+
+  <ul>
+  <% @sub.posts.each do |post| %>
+    <li><%= link_to "#{post.title}
+      (#{preview(post.content)})",
+      post_url(post) %>
+    </li>
+  <% end %>
+  </ul>
+
+

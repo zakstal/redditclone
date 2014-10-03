@@ -1,0 +1,34 @@
+<h1><%= @post.sub.title %></h1>
+
+<form action="<%= action %>" method="POST">
+  <%= form_auth %>
+  <input type="hidden" name="_method" value="<%= method_type %>">
+  <label for="title">Title</label>
+  <input type="text"
+         name="post[title]"
+         id="title"
+         value="<%= @post.title %>">
+  <br></br>
+  <label for="content">Content</label>
+  <input type="textarea"
+         name="post[content]"
+         id="content"
+         value="<%= @post.content %>">
+  <br></br>
+  <label for="url">Url</label>
+  <input type="text"
+         name="post[url]"
+         id="url"
+         value="<%= @post.url %>">
+  <br></br>
+  <% Sub.all.each do |sub| %>
+  <label for="check"><%= sub.title %></label>
+  <input type="checkbox"
+         name="post[sub_ids][]"
+         id="check"
+         value="<%= sub.id %>"
+         <%= "checked" if @post.sub_ids.include?(sub.id) %> >
+         <br>
+  <% end %>
+  <input type="submit" value="Submit">
+</form>

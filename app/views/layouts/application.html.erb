@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RedditClone</title>
+</head>
+<body>
+
+<%= flash[:errors] %>
+<% if logged_in? %>
+  <%= "Currently logged in as #{current_user.email}" %>
+  <%= button_to "Log out", session_url, method: :delete %>
+<% else %>
+  <p>
+    <%= link_to "Sign Up", new_user_url %>
+    &nbsp&nbsp&nbsp&nbspAlready a user?
+    <%= link_to "Sign In", new_session_url %>
+  </p>
+<% end %>
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+<h1><%= @post.title %></h1>
+
+<% if logged_in? &&
+      (author?(@post.author_id) || moderator?(@post.sub.moderator_id))  %>
+
+  <%= link_to "Edit this post", edit_post_url(@post) %>
+  <%= button_to "Delete this post",
+      post_url(@post),
+      method: :delete,
+      data: { confirm: "Are you sure" }%>
+<% end %>
+
+<p><%= @post.content %></p>
+
+<%= link_to "<< Back to #{ @post.sub.title }", sub_url(@post.sub) %>
